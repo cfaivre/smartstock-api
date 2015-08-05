@@ -1,0 +1,31 @@
+development:
+  sessions:
+    default:
+      database: stc_development
+      hosts:
+        - 127.0.0.1:27017
+      identity_map_enabled: true
+
+test:
+  sessions:
+    default:
+      database: stc_test
+      hosts:
+        - 127.0.0.1:27017
+      identity_map_enabled: true
+
+staging:
+  sessions:
+    default:
+      database: stc
+      hosts:
+        - 127.0.0.1:27017
+      identity_map_enabled: true
+
+production:
+  sessions:
+    default:
+      database: stc
+      hosts:
+        - 127.0.0.1:27017
+      identity_map_enabled: true

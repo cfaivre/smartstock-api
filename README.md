@@ -1,1 +1,5 @@
-# eskom-api
+stock-api
+===
+
+API service tracking stock
+
