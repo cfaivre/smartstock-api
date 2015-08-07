@@ -1,5 +1,6 @@
 require 'cgi'
 require 'json'
+require 'uri'
 
 class StockApiApp < Sinatra::Base
 
@@ -32,6 +33,22 @@ class StockApiApp < Sinatra::Base
       params[:rfids].each { |rfid|
         Item.where( rfid: rfid ).set( location: params[:new_location] )
         Item.where( rfid: rfid ).set( storage_location: params[:new_storage_location] )
+      }
+      { message: 'success' }.to_json
+    rescue ItemError => e
+       status 422 and { message: e.message }.to_json
+    end
+  end
+
+  post '/api/items/scanned' do
+    params = request.body.read
+    uri_params = URI.decode(params)
+    params = CGI::parse(uri_params)
+    reader_name = params['reader_name'][0].gsub(/\"/,'')
+    rfids = params['field_values'][0].split( /\n/ ).map{ |x| x.gsub(/\"/,'') }.uniq
+    begin
+      rfids.each { |rfid|
+        Item.where( rfid: rfid ).set( location: reader_name )
       }
       { message: 'success' }.to_json
     rescue ItemError => e

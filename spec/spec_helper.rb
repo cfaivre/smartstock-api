@@ -24,6 +24,10 @@ def json_header
   { 'ACCEPT' => 'application/json', "CONTENT_TYPE" => "application/json"}
 end
 
+def plain_header
+  { 'ACCEPT' => 'text/plain', 'CONTENT_TYPE' => 'text/html' }
+end
+
 # VCR
 require 'webmock/rspec'
 require 'vcr'
