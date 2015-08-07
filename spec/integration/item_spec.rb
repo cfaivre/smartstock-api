@@ -41,5 +41,6 @@ describe "item" do
     response_body = JSON.parse( last_response.body )
     expect( response_body['message'] ).to eq 'success'
     expect( Item.all.first.location ).to eq reader_name
+    expect( Item.all.first.status ).to eq 'unaccepted'
   end
 end

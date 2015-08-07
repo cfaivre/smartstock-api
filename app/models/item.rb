@@ -10,14 +10,15 @@ class Item
   field :rfid,                  type: String
   field :purchase_order_number, type: String
   field :sap_number,            type: String
+  field :status,                type: String
 
   validates_uniqueness_of :rfid
   validates_uniqueness_of :serial_number
-
+  validates :status, inclusion: { in: ['initialized', 'accepted', 'unaccepted'], message: "%{value} is not a valid status" }
 
   def scanned( params )
     params[:rfids].each { |rfid|
-      Item.where( rfid: rfid ).set( location: params[:reader] )
+      Item.where( rfid: rfid ).set( location: params[:reader], status: 'unaccepted' )
     }
   end
 end

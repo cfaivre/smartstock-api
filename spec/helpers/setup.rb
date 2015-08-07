@@ -48,13 +48,13 @@ module Helpers
     def self.items
       Item.create!( location: 'supplier', date: Date.parse('2015-01-01'), serial_number: 'diosao87dsa776',
                     rfid: '2015052900000000000000000000ABD3', purchase_order_number: 'PO890879',
-                    sap_number: '11111111111111' )
+                    sap_number: '11111111111111', status: 'initialized' )
       Item.create!( location: 'supplier', date: Date.parse('2015-01-01'), serial_number: 'diosao84gfvv776',
                     rfid: '2015052900000000000000000000ABD5', purchase_order_number: 'PO890879',
-                    sap_number: '11111111111111' )
+                    sap_number: '11111111111111', status: 'initialized' )
       Item.create!( location: 'supplier', date: Date.parse('2015-01-01'), serial_number: '45gergreg55554',
                     rfid: '2015052900000000000000000000ABCF', purchase_order_number: 'PO890878',
-                    sap_number: '22222222222222' )
+                    sap_number: '22222222222222', status: 'initialized' )
     end
 
     def self.item_types
