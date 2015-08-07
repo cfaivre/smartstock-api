@@ -14,4 +14,10 @@ class Item
   validates_uniqueness_of :rfid
   validates_uniqueness_of :serial_number
 
+
+  def scanned( params )
+    params[:rfids].each { |rfid|
+      Item.where( rfid: rfid ).set( location: params[:reader] )
+    }
+  end
 end

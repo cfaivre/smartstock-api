@@ -41,18 +41,20 @@ class StockApiApp < Sinatra::Base
   end
 
   post '/api/items/scanned' do
-    params = request.body.read
-    uri_params = URI.decode(params)
-    params = CGI::parse(uri_params)
-    reader_name = params['reader_name'][0].gsub(/\"/,'')
-    rfids = params['field_values'][0].split( /\n/ ).map{ |x| x.gsub(/\"/,'') }.uniq
+    body = parse_scanned_items( request.body.read )
     begin
-      rfids.each { |rfid|
-        Item.where( rfid: rfid ).set( location: reader_name )
-      }
+      Item.new.scanned( { rfids: body[:rfids], reader: body[:reader] } )
       { message: 'success' }.to_json
     rescue ItemError => e
        status 422 and { message: e.message }.to_json
     end
+  end
+
+  def parse_scanned_items( body )
+    uri_body = URI.decode( body )
+    cgi_body = CGI::parse( uri_body )
+    reader = cgi_body['reader_name'][0].gsub(/\"/,'')
+    rfids = cgi_body['field_values'][0].split( /\n/ ).map{ |x| x.gsub(/\"/,'') }.uniq
+    { reader: reader, rfids: rfids}
   end
 end
