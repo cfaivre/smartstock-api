@@ -4,6 +4,7 @@ module Helpers
       cncs
       item_types
       items
+      stock_takes
       warehouses
       locations
     end
@@ -62,6 +63,10 @@ module Helpers
                         image: 'link_to_file', rating: '200kva')
       ItemType.create!( sap_number: '387655h4tgre4', material_type: 'wood', description: 'Pole 3m length',
                         image: 'link_to_file', rating: '100kva')
+    end
+
+    def self.stock_takes
+      StockTake.create!( items: [ '2015052900000000000000000000ABD3','2015052900000000000000000000ABD5','2015052900000000000000000000ABCF' ] )
     end
 
   end

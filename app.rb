@@ -5,6 +5,7 @@ require_relative './app/models/cnc'
 require_relative './app/models/item'
 require_relative './app/models/item_type'
 require_relative './app/models/location'
+require_relative './app/models/stock_take'
 require_relative './app/models/warehouse'
 Dir[File.join(File.dirname(__FILE__), "/app/routes/*.rb")].each {|file| require file }
 

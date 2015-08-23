@@ -6,6 +6,7 @@ module Helpers
       locations
       item_types
       items
+      stock_takes
     end
 
     def self.cncs
@@ -22,6 +23,10 @@ module Helpers
 
     def self.locations
       Location.delete_all
+    end
+
+    def self.stock_takes
+      StockTake.delete_all
     end
 
     def self.warehouses
