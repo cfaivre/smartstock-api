@@ -47,26 +47,28 @@ module Helpers
     end
 
     def self.items
-      Item.create!( location: 'supplier', date: Date.parse('2015-01-01'), serial_number: 'diosao87dsa776',
-                    rfid: '2015052900000000000000000000ABD3', purchase_order_number: 'PO890879',
-                    sap_number: '11111111111111', status: 'initialized' )
-      Item.create!( location: 'supplier', date: Date.parse('2015-01-01'), serial_number: 'diosao84gfvv776',
-                    rfid: '2015052900000000000000000000ABD5', purchase_order_number: 'PO890879',
-                    sap_number: '11111111111111', status: 'initialized' )
-      Item.create!( location: 'supplier', date: Date.parse('2015-01-01'), serial_number: '45gergreg55554',
-                    rfid: '2015052900000000000000000000ABCF', purchase_order_number: 'PO890878',
-                    sap_number: '22222222222222', status: 'initialized' )
+      Item.create!( rfid: '2015052900000000000000000000ABE2', sap_number: '0164584' )
+      Item.create!( rfid: '2015052900000000000000000000ABD1', sap_number: '0164584' )
+      Item.create!( rfid: '20150529000000008FF92F2500000000', sap_number: '0164584' )
+      Item.create!( rfid: '2015052900000000000000000000ABCF', sap_number: '0164584' )
+      Item.create!( rfid: '2015052900000000000000000000ABD0', sap_number: '0164584' )
+      Item.create!( rfid: '2015052900000000000000000000ABD4', sap_number: '0164584' )
+      Item.create!( rfid: '2015052900000000000000000000ABD2', sap_number: '0164585' )
+      Item.create!( rfid: '2015052900000000000000000000ABD5', sap_number: '0164585' )
+      Item.create!( rfid: '2015052900000000000000000000ABD3', sap_number: '0164585' )
+      Item.create!( rfid: '2015052900000000000000000000ABD6', sap_number: '0164585' )
     end
 
     def self.item_types
-      ItemType.create!( sap_number: '32r3454tgre4', material_type: 'carbon', description: 'Pole 11m length',
-                        image: 'link_to_file', rating: '200kva')
-      ItemType.create!( sap_number: '387655h4tgre4', material_type: 'wood', description: 'Pole 3m length',
-                        image: 'link_to_file', rating: '100kva')
+      ItemType.create!( sap_number: '0164584', material_type: 'wooden pole', description: 'POLE,WOOD 18.0X180-199 TOP DIA     D0048', image: './img/pole_white.jpg', color: 'white');
+      ItemType.create!( sap_number: '0164585', material_type: 'wooden pole', description: 'POLE,WOOD 18.0X200-219 TOP DIA     D0048', image: './img/pole_purple.jpg', color: 'purple');
     end
 
     def self.stock_takes
-      StockTake.create!( items: [ '2015052900000000000000000000ABD3','2015052900000000000000000000ABD5','2015052900000000000000000000ABCF' ] )
+      StockTake.create!( items: [ '2015052900000000000000000000ABE2','2015052900000000000000000000ABD1','20150529000000008FF92F2500000000',
+                                  '2015052900000000000000000000ABD6','2015052900000000000000000000ABD3','2015052900000000000000000000ABD5' ] )
+      StockTake.create!( items: [ '2015052900000000000000000000ABCF','2015052900000000000000000000ABD0','2015052900000000000000000000ABD4',
+                                  '2015052900000000000000000000ABD2' ] )
     end
 
   end
