@@ -3,7 +3,7 @@ require 'json'
 
 class StockApiApp < Sinatra::Base
 
-  get '/api/stock_takes' do
+  get '/api/stock-takes' do
     content_type :json
     result = nil
     begin

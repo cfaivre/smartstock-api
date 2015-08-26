@@ -8,7 +8,7 @@ describe "stock take" do
 
   it "lists all stock takes" do
     Helpers::Setup.all
-    get '/api/stock_takes', {}, json_header
+    get '/api/stock-takes', {}, json_header
 
     expect(last_response.status).to eq 200
     response = JSON.parse(last_response.body)
