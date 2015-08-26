@@ -4,10 +4,11 @@ require_relative '../app.rb'
 # USAGE
 # RACK_ENV='development' ./scripts/populate_cncs.rb
 
-unless ['development', 'test'].include? ENV['RACK_ENV']
-  puts "Can only run in development or test environment"
-  exit
-end
+#unless ['development', 'test'].include? ENV['RACK_ENV']
+#  puts "Can only run in development or test environment"
+#  exit
+#end
+
 Cnc.delete_all
 Cnc.create!( name: 'ceres', code: '0006', color: '#008000', highlight: '#99EB99' ) #green
 Cnc.create!( name: 'swellendam', code: '0007', color: '#0000FF', highlight: '#8099CC' ) #blue

@@ -4,10 +4,10 @@ require_relative '../app.rb'
 # USAGE
 # RACK_ENV='development' ./scripts/populate_item_types.rb
 
-unless ['development', 'test'].include? ENV['RACK_ENV']
-  puts "Can only run in development or test environment"
-  exit
-end
+#unless ['development', 'test'].include? ENV['RACK_ENV']
+#  puts "Can only run in development or test environment"
+#  exit
+#end
 
 ItemType.delete_all
 ItemType.create!( sap_number: '0164584', material_type: 'wooden pole', description: 'POLE,WOOD 18.0X180-199 TOP DIA     D0048', image: './img/pole_white.jpg', color: 'white');
