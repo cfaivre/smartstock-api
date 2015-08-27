@@ -9,6 +9,13 @@ require_relative './app/models/stock_take'
 require_relative './app/models/warehouse'
 Dir[File.join(File.dirname(__FILE__), "/app/routes/*.rb")].each {|file| require file }
 
+module BSON
+  class ObjectId
+    alias :to_json :to_s
+    alias :as_json :to_s
+  end
+end
+
 class StockApiApp < Sinatra::Base
 
   Mongoid.load!('config/mongoid.yml')
