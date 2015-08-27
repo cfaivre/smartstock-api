@@ -1,7 +1,7 @@
 development:
   sessions:
     default:
-      database: stc_development
+      database: eskom_development
       hosts:
         - 127.0.0.1:27017
       identity_map_enabled: true
@@ -9,7 +9,7 @@ development:
 test:
   sessions:
     default:
-      database: stc_test
+      database: eskom_test
       hosts:
         - 127.0.0.1:27017
       identity_map_enabled: true
@@ -17,7 +17,7 @@ test:
 staging:
   sessions:
     default:
-      database: stc
+      database: eskom
       hosts:
         - 127.0.0.1:27017
       identity_map_enabled: true
@@ -25,7 +25,7 @@ staging:
 production:
   sessions:
     default:
-      database: stc
+      database: eskom
       hosts:
         - 127.0.0.1:27017
       identity_map_enabled: true
