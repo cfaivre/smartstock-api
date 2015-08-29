@@ -7,7 +7,7 @@ class StockApiApp < Sinatra::Base
     content_type :json
     result = nil
     begin
-      result = ItemType.all
+      result = ItemType.where(params)
       halt 200, result.to_json
     rescue ItemTypeError => e
       halt 500, { errors: { message: e.message.to_s } }.to_json
