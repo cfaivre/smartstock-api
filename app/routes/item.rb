@@ -8,7 +8,8 @@ class StockApiApp < Sinatra::Base
     content_type :json
     result = nil
     begin
-      result = Item.where(params).map{|item| item.as_document}
+      #result = Item.where(params).map{|item| item.as_document}
+      result = Item.where(params)
       halt 200, result.to_json
     rescue ItemError => e
       halt 500, { errors: { message: e.message.to_s } }.to_json
