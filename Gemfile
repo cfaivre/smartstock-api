@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'mongoid', '~> 4.0.2'
+gem 'prawn', '~> 2.0.2'
+gem 'prawn-table', '~> 0.2.2'
 gem 'racksh', '~> 1.0.0'
 gem 'sinatra', '~> 1.4.4'
 

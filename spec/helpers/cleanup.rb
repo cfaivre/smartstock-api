@@ -27,6 +27,8 @@ module Helpers
 
     def self.stock_takes
       StockTake.delete_all
+      pdf_files = File.join(File.dirname(__FILE__), "../../app/pdfs/*.pdf")
+      `rm -rf #{pdf_files}`
     end
 
     def self.warehouses

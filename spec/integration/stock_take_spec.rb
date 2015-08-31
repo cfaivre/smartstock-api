@@ -4,10 +4,11 @@ describe "stock take" do
 
   before :each do
     Helpers::Cleanup.all
+    Helpers::Setup.all
   end
 
   it "lists all stock takes" do
-    Helpers::Setup.all
+    Helpers::Setup.stock_takes
     get '/api/stock-takes', {}, json_header
 
     expect(last_response.status).to eq 200
@@ -19,7 +20,6 @@ describe "stock take" do
   end
 
   it "creates a new stock take" do
-    Helpers::Setup.items
     rfids = [ '2015052900000000000000000000ABD3', '2015052900000000000000000000ABD5', '2015052900000000000000000000ABCF' ]
     put '/api/stock_take', { rfids: rfids }.to_json, json_header
     expect(last_response.status).to eq 200

@@ -4,7 +4,6 @@ module Helpers
       cncs
       item_types
       items
-      stock_takes
       warehouses
       locations
     end
