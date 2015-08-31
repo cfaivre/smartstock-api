@@ -25,16 +25,17 @@ class StockTake
   def self.generate_pdf( id, date, data )
     require "prawn/table"
     pdf = Prawn::Document.new
-    pdf.table([[{content: "Stock Level Report: #{date}", colspan: 8}]])
-    pdf.table([ [ { content: 'SAP number', colspan: 2},
-                  { content: 'Description', colspan: 2},
-                  { content: 'Quantity', colspan: 2} ] ])
+    pdf.text( "Stock Level Report: #{Time.parse( date.to_s ).strftime('%Y/%m/%d %H:%M')}" )
+    contents = [ [ { content: 'SAP number'},
+                   { content: 'Description'},
+                   { content: 'Quantity'} ] ]
     data.each do |k, v|
       item_type = ItemType.where(sap_number: k).first
-      pdf.table([ [ { content: k, colspan: 2},
-                    { content: item_type.description.to_s, colspan: 2},
-                    { content: v.to_s, colspan: 2} ] ])
+      contents +=  [ [ { content: k},
+                       { content: item_type.description.to_s},
+                       { content: v.to_s } ] ]
     end
+    pdf.table( contents )
     pdf.render_file File.join(File.dirname(__FILE__), "/../pdfs/#{id}.pdf")
   end
 
