@@ -7,7 +7,7 @@ class StockApiApp < Sinatra::Base
     content_type :json
     result = nil
     begin
-      result = StockTake.all
+      result = StockTake.where(params)
       halt 200, result.to_json
     rescue StockTakeError => e
       halt 500, { errors: { message: e.message.to_s } }.to_json
