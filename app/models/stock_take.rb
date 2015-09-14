@@ -8,6 +8,7 @@ class StockTake
 
   def self.upload( items )
     stats = {}
+    items = items.lines.map(&:chomp)
     items.map{|item|
       Item.where(rfid: item).map{ |x|
         if ( stats[x.sap_number].nil? )
