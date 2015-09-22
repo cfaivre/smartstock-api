@@ -6,9 +6,9 @@ class StockTake
   field :items, type: Array
   field :stats, type: Hash
 
-  def self.upload( items )
+  def self.upload( items, from_pi )
     stats = {}
-    items = items.lines.map(&:chomp)
+    items = items.lines.map(&:chomp) if from_pi
     items.map{|item|
       Item.where(rfid: item).map{ |x|
         if ( stats[x.sap_number].nil? )
