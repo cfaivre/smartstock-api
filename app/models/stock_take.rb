@@ -19,7 +19,7 @@ class StockTake
       }
     }
     stock_take = StockTake.create!( items: items, stats: stats )
-    generate_pdf( stock_take.id.to_json, stock_take.created_at, stats )
+    #generate_pdf( stock_take.id.to_json, stock_take.created_at, stats )
     stock_take
   end
 
