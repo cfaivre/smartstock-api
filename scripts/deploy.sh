@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Detect mshini root directory
+# Detect smartstock root directory
 DIR=$(cd `dirname $0`/../../.. && pwd)
 
 # Detect name of project
