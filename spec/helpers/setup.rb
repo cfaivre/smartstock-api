@@ -4,7 +4,6 @@ module Helpers
       cncs
       item_types
       items
-      warehouses
       locations
     end
 
@@ -34,10 +33,6 @@ module Helpers
       Cnc.create!( name: 'riversdal', code: '0005', color: '#669999', highlight: '#A3C2C2' ) #blue/gray
       Cnc.create!( name: 'ladysmith', code: '0009', color: '#FFFFFF', highlight: '#E6E6E6' ) #white
       Cnc.create!( name: 'plettenbergbaai', code: '0323', color: '#CC00CC', highlight: '#E680E6' ) #pink2
-    end
-
-    def self.warehouses
-      Warehouse.create!( name: 'brackenfell', code: '9999', color: '#000000', highlight: '#191919' ) #black
     end
 
     def self.locations
