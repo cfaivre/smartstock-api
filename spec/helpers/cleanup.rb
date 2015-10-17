@@ -1,15 +1,10 @@
 module Helpers
   module Cleanup
     def self.all
-      cncs
       locations
       item_types
       items
       stock_takes
-    end
-
-    def self.cncs
-      Cnc.delete_all
     end
 
     def self.items
